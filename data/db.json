@@ -1,0 +1,25 @@
+{
+    "carouselImages": [
+        "https://images.unsplash.com/photo-1526045478516-99145907023c?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1513475382585-d06e58bcb0ea?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1516600164266-f3b8166ae679?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1000&auto=format&fit=crop"
+    ],
+    "products": [
+        {
+            "id": "birthday-pkg",
+            "name": "Birthday Package",
+            "description": "Cake + balloons + card + surprise add-ons. Starting from PKR 4,500+.",
+            "imageUrl": "https://images.unsplash.com/photo-1526045478516-99145907023c?q=80&w=1000&auto=format&fit=crop"
+        },
+        {
+            "id": "bouquet-pkg",
+            "name": "Bouquet Package",
+            "description": "Fresh florals + chocolate + handwritten note. Starting from PKR 3,200+.",
+            "imageUrl": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1000&auto=format&fit=crop"
+        }
+    ],
+    "sizes": []
+}
