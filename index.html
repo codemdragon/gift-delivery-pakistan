@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gift Delivery Pakistan — Heartfelt Packages</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        :root {
+            color-scheme: light;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        }
+
+        .heart-bg {
+            background-image: radial-gradient(#ffb3c7 1px, transparent 1px), radial-gradient(#ffd1dc 1px, transparent 1px);
+            background-position: 0 0, 25px 25px;
+            background-size: 50px 50px;
+        }
+
+        .glow {
+            box-shadow: 0 10px 35px rgba(255, 99, 132, 0.25);
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Drawer */
+        .drawer {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .drawer.open {
+            transform: translateX(0);
+        }
+
+        .overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-rose-50 text-rose-950 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-rose-100">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="font-bold text-xl text-rose-600 tracking-wider">GIFT DELIVERY <span
+                    class="text-rose-400">PK</span></a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex gap-8 font-medium text-rose-900">
+                <a href="#home" class="hover:text-rose-600 transition">Home</a>
+                <a href="#packages" class="hover:text-rose-600 transition">Packages</a>
+                <a href="#gallery" class="hover:text-rose-600 transition">Gallery</a>
+                <a href="#contact" class="hover:text-rose-600 transition">Contact</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="menu-btn" class="md:hidden text-rose-600 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="drawer-overlay" class="overlay fixed inset-0 bg-black/50 z-40"></div>
+    <div id="drawer" class="drawer fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-50 p-6 flex flex-col">
+        <button id="close-btn" class="self-end text-rose-600 mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <div class="flex flex-col gap-6 text-lg font-semibold text-rose-800">
+            <a href="#home" class="drawer-link hover:text-rose-600">Home</a>
+            <a href="#packages" class="drawer-link hover:text-rose-600">Packages</a>
+            <a href="#gallery" class="drawer-link hover:text-rose-600">Gallery</a>
+            <a href="#contact" class="drawer-link hover:text-rose-600">Contact Us</a>
+        </div>
+    </div>
+
+    <header id="home" class="heart-bg pt-10 pb-16">
+        <div class="max-w-6xl mx-auto px-6 py-10">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 fade-up">
+                <div>
+                    <p class="uppercase tracking-[0.25em] text-rose-500 font-semibold">Gift Delivery Pakistan</p>
+                    <h1 class="text-4xl md:text-5xl font-extrabold mt-3">Heartfelt Gifts & Birthday Joy</h1>
+                    <p class="mt-4 text-lg text-rose-700 max-w-xl">Thoughtful packages for every celebration. Delivery
+                        available in Karachi, Lahore & Islamabad.</p>
+                    <div class="mt-6 flex flex-wrap gap-3" id="stats-container">
+                        <!-- Stats loaded via JS -->
+                        <span class="px-4 py-2 rounded-full bg-white/80 border border-rose-200 animate-pulse">Loading
+                            stats...</span>
+                    </div>
+                </div>
+                <div class="bg-white/90 border border-rose-200 rounded-3xl p-6 w-full md:w-96 glow">
+                    <p class="text-sm text-rose-400 uppercase tracking-[0.2em]">Fast Order</p>
+                    <h2 class="text-2xl font-bold mt-2">DM to Order ❤️✨</h2>
+                    <p class="mt-3 text-rose-700">We keep it simple: build your package, copy details, and we redirect
+                        you to Instagram for quick DM ordering.</p>
+                    <a href="https://www.instagram.com/gift_delivery_pakistan/"
+                        class="inline-flex items-center justify-center mt-5 w-full rounded-full bg-rose-500 text-white py-3 font-semibold hover:bg-rose-600 transition">Visit
+                        Instagram</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 flex-grow">
+        <section id="packages" class="grid lg:grid-cols-[2fr,1fr] gap-10 items-start">
+            <div class="fade-up">
+                <h2 class="text-3xl font-bold">Pick Your Package</h2>
+                <p class="text-rose-700 mt-2">Curated packages instead of individual items. Select the package and
+                    personalize your birthday vibe.</p>
+
+                <div class="mt-6 grid md:grid-cols-2 gap-6" id="products-container">
+                    <!-- Loaded via JS -->
+                    <div class="col-span-2 text-center py-10 text-rose-400">Loading packages...</div>
+                </div>
+            </div>
+
+            <aside class="bg-rose-100/70 border border-rose-200 rounded-3xl p-6 sticky top-24 fade-up delay-200">
+                <h3 class="text-2xl font-bold">Your Order</h3>
+                <p class="text-rose-700 mt-2">We’ll copy your selections and open Instagram DM to finish.</p>
+                <div id="cart" class="mt-4 space-y-3 text-sm text-rose-700"></div>
+                <div class="mt-4">
+                    <label class="text-sm font-semibold">Delivery City</label>
+                    <select id="city" class="mt-2 w-full rounded-xl border border-rose-200 bg-white px-3 py-2">
+                        <option>Karachi</option>
+                        <option>Lahore</option>
+                        <option>Islamabad</option>
+                    </select>
+                </div>
+                <div class="mt-4">
+                    <label class="text-sm font-semibold">Special Notes</label>
+                    <textarea id="notes" class="mt-2 w-full rounded-xl border border-rose-200 bg-white px-3 py-2"
+                        rows="3" placeholder="Message on card, delivery time, etc."></textarea>
+                </div>
+                <button id="checkout"
+                    class="mt-5 w-full rounded-full bg-rose-600 text-white py-3 font-semibold shadow-lg hover:bg-rose-700 transition transform hover:-translate-y-1">Copy
+                    & DM on Instagram</button>
+                <p id="status" class="mt-3 text-xs text-rose-500 font-medium h-4"></p>
+            </aside>
+        </section>
+
+        <section id="gallery" class="mt-20 fade-up">
+            <div class="flex items-center justify-between">
+                <h2 class="text-3xl font-bold">Gallery of Previous Gifts</h2>
+                <span class="text-rose-500 hidden sm:inline">Hearts • Birthdays • Smiles</span>
+            </div>
+            <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-container">
+                <!-- Loaded via JS -->
+                <div class="col-span-3 text-center py-10 text-rose-400 animate-pulse">Loading gallery...</div>
+            </div>
+        </section>
+
+        <section id="contact" class="mt-20 mb-10 fade-up">
+            <h2 class="text-3xl font-bold">Customer Love Notes</h2>
+            <div class="mt-6 grid md:grid-cols-3 gap-6">
+                <div class="bg-white border border-rose-100 rounded-3xl p-6 shadow-sm hover:shadow-md transition">
+                    <p class="text-rose-600 italic">“The birthday package for my sister was dreamy. Everything arrived
+                        on time!”</p>
+                    <p class="mt-4 font-semibold text-rose-800">— Ayesha K., Karachi</p>
+                </div>
+                <div class="bg-white border border-rose-100 rounded-3xl p-6 shadow-sm hover:shadow-md transition">
+                    <p class="text-rose-600 italic">“Bouquet was fresh and the card message was perfect. Loved the
+                        hearts theme!”</p>
+                    <p class="mt-4 font-semibold text-rose-800">— Hamza R., Lahore</p>
+                </div>
+                <div class="bg-white border border-rose-100 rounded-3xl p-6 shadow-sm hover:shadow-md transition">
+                    <p class="text-rose-600 italic">“Quick response on Instagram and smooth delivery to Islamabad.”</p>
+                    <p class="mt-4 font-semibold text-rose-800">— Sara M., Islamabad</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-rose-600 text-white mt-auto">
+        <div class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-2xl font-bold">Gift Delivery Pakistan</h3>
+                <p class="mt-3 text-rose-100">Thoughtful gifts for every occasion. Birthday joy delivered with hearts.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-semibold uppercase tracking-[0.2em] text-sm mb-4">Service Cities</h4>
+                <ul class="space-y-2 text-rose-100">
+                    <li>📍 Karachi</li>
+                    <li>📍 Lahore</li>
+                    <li>📍 Islamabad</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold uppercase tracking-[0.2em] text-sm mb-4">Connect</h4>
+                <a href="https://www.instagram.com/gift_delivery_pakistan/" target="_blank"
+                    class="inline-flex items-center gap-2 bg-white text-rose-600 px-5 py-2.5 rounded-full font-bold hover:bg-rose-50 transition">
+                    <span>Follow on Instagram</span>
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 A4.902 4.902 0 015.468 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="border-t border-rose-500/50 text-center py-6 text-sm text-rose-200">
+            © 2026 Gift Delivery Pakistan. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // --- Config ---
+        const DB_URL = 'data/db.json';
+        let products = [];
+        let cartItems = [];
+        let birthdayVibe = 'Boy';
+
+        // --- Init ---
+        document.addEventListener('DOMContentLoaded', () => {
+            loadData();
+            setupMobileMenu();
+            setupAnimations();
+        });
+
+        async function loadData() {
+            try {
+                const res = await fetch(DB_URL);
+                if (!res.ok) throw new Error("Failed to load DB");
+                const data = await res.json();
+
+                // 1. Render Stats
+                if (data.stats) {
+                    document.getElementById('stats-container').innerHTML = `
+                    <span class="px-4 py-2 rounded-full bg-white/80 border border-rose-200 font-medium">${data.stats.posts} Posts</span>
+                    <span class="px-4 py-2 rounded-full bg-white/80 border border-rose-200 font-medium">${data.stats.followers} Followers</span>
+                    <span class="px-4 py-2 rounded-full bg-white/80 border border-rose-200 font-medium">${data.stats.following} Following</span>
+                `;
+                }
+
+                // 2. Render Products
+                if (data.products) {
+                    products = data.products;
+                    const container = document.getElementById('products-container');
+                    container.innerHTML = products.map((p, i) => `
+                    <article class="bg-white border border-rose-100 rounded-3xl p-6 shadow-sm hover:shadow-md transition duration-300">
+                        <div class="h-40 mb-4 rounded-xl bg-gray-100 overflow-hidden">
+                             <img src="${p.imageUrl}" alt="${p.name}" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold">${p.name}</h3>
+                        <p class="mt-2 text-rose-600 text-sm h-10 overflow-hidden">${p.description}</p>
+                        
+                        ${p.name.includes('Birthday') ? `
+                        <div class="mt-4">
+                            <label class="text-xs font-bold uppercase tracking-wide text-rose-400">Vibe</label>
+                            <div class="mt-2 flex gap-2">
+                                <button class="vibe-btn px-3 py-1 text-sm rounded-full border border-rose-200 text-rose-600 hover:bg-rose-50 transition ${birthdayVibe === 'Boy' ? 'bg-rose-500 text-white border-transparent' : ''}" data-vibe="Boy">Boy</button>
+                                <button class="vibe-btn px-3 py-1 text-sm rounded-full border border-rose-200 text-rose-600 hover:bg-rose-50 transition ${birthdayVibe === 'Girl' ? 'bg-rose-500 text-white border-transparent' : ''}" data-vibe="Girl">Girl</button>
+                            </div>
+                        </div>` : '<div class="mt-4 h-[58px]"></div>'}
+
+                        <button class="add-btn mt-5 w-full rounded-full bg-rose-500 text-white py-2.5 font-semibold hover:bg-rose-600 transition shadow-sm active:scale-95" data-index="${i}">Add to Cart</button>
+                    </article>
+                `).join('');
+
+                    attachProductListeners();
+                }
+
+                // 3. Render Gallery
+                if (data.carouselImages) {
+                    const galleryContainer = document.getElementById('gallery-container');
+                    // Combining manual items if carouselImages is small or just using them
+                    // For now, let's mix the DB images
+                    galleryContainer.innerHTML = data.carouselImages.map((url, i) => `
+                    <div class="rounded-3xl overflow-hidden bg-white shadow-sm border border-rose-100 hover:shadow-md transition duration-300 group">
+                        <div class="h-64 overflow-hidden">
+                            <img src="${url}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Gallery Image ${i + 1}">
+                        </div>
+                    </div>
+                 `).join('');
+                }
+
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        function setupMobileMenu() {
+            const btn = document.getElementById('menu-btn');
+            const drawer = document.getElementById('drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            const closeBtn = document.getElementById('close-btn');
+            const links = document.querySelectorAll('.drawer-link');
+
+            function toggleMenu() {
+                drawer.classList.toggle('open');
+                overlay.classList.toggle('open');
+                document.body.classList.toggle('overflow-hidden');
+            }
+
+            btn.addEventListener('click', toggleMenu);
+            closeBtn.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
+            links.forEach(link => link.addEventListener('click', toggleMenu));
+        }
+
+        function setupAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        }
+
+        // --- Cart Logic ---
+        const cartEl = document.getElementById('cart');
+        const statusEl = document.getElementById('status');
+
+        function attachProductListeners() {
+            // Vibe Buttons
+            document.querySelectorAll('.vibe-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    birthdayVibe = e.target.dataset.vibe;
+                    // Update UI visually
+                    // (In a real app, scope this to the card, but global for simple demo is fine)
+                    document.querySelectorAll('.vibe-btn').forEach(b => {
+                        b.classList.remove('bg-rose-500', 'text-white', 'border-transparent');
+                        b.classList.add('text-rose-600', 'border-rose-200');
+                    });
+                    e.target.classList.remove('text-rose-600', 'border-rose-200');
+                    e.target.classList.add('bg-rose-500', 'text-white', 'border-transparent');
+                });
+            });
+
+            // Add Buttons
+            document.querySelectorAll('.add-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = e.target.dataset.index;
+                    const product = products[index];
+                    const note = product.name.includes('Birthday') ? `Vibe: ${birthdayVibe}` : 'Standard Package';
+
+                    cartItems.push({ name: product.name, note });
+                    renderCart();
+
+                    // Button Feedback
+                    const originalText = e.target.innerText;
+                    e.target.innerText = "Added ✨";
+                    e.target.classList.add('bg-rose-700');
+                    setTimeout(() => {
+                        e.target.innerText = originalText;
+                        e.target.classList.remove('bg-rose-700');
+                    }, 1000);
+                });
+            });
+        }
+
+        function renderCart() {
+            if (cartItems.length === 0) {
+                cartEl.innerHTML = '<p class="text-rose-400 italic text-center py-4">Your basket is empty.</p>';
+                return;
+            }
+            cartEl.innerHTML = cartItems.map((item, index) => `
+        <div class="flex items-center justify-between bg-white/60 backdrop-blur-sm px-4 py-3 rounded-xl border border-rose-200 shadow-sm animate-fade-in-up">
+          <div>
+            <p class="font-bold text-rose-900">${item.name}</p>
+            <p class="text-xs text-rose-500 font-medium">${item.note}</p>
+          </div>
+          <button class="remove-btn text-xs text-rose-400 hover:text-red-500 font-semibold uppercase tracking-wide" data-index="${index}">Remove</button>
+        </div>
+      `).join('');
+
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    cartItems.splice(Number(btn.dataset.index), 1);
+                    renderCart();
+                });
+            });
+        }
+
+        document.getElementById('checkout').addEventListener('click', async () => {
+            const city = document.getElementById('city').value;
+            const notes = document.getElementById('notes').value.trim();
+            if (cartItems.length === 0) {
+                statusEl.textContent = 'Please add a package before checkout.';
+                return;
+            }
+
+            const summaryLines = [
+                '🌸 *Gift Delivery Pakistan Order*',
+                `📍 City: ${city}`,
+                '',
+                '*Order Details:*',
+                ...cartItems.map((item, idx) => `${idx + 1}. ${item.name} (${item.note})`),
+                '',
+                notes ? `📝 *Notes:* ${notes}` : '📝 *Notes:* None',
+            ];
+            const summary = summaryLines.join('\n');
+
+            try {
+                await navigator.clipboard.writeText(summary);
+                statusEl.textContent = '✓ Order details copied! Opening Instagram...';
+                statusEl.className = "mt-3 text-xs text-green-600 font-bold"
+                setTimeout(() => {
+                    window.location.href = 'https://www.instagram.com/gift_delivery_pakistan/';
+                }, 1200);
+            } catch (err) {
+                statusEl.textContent = 'Clipboard blocked. Copy manually before DM.';
+            }
+        });
+
+        renderCart();
+    </script>
+</body>
+
+</html>
