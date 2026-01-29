@@ -1,4 +1,9 @@
 {
+    "stats": {
+        "posts": "21",
+        "followers": "41",
+        "following": "39"
+    },
     "carouselImages": [
         "https://images.unsplash.com/photo-1526045478516-99145907023c?q=80&w=1000&auto=format&fit=crop",
         "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?q=80&w=1000&auto=format&fit=crop",
